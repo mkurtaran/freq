@@ -1,0 +1,21 @@
+{
+  "exchange": {
+    "name": "binance",
+    "type": "spot"
+  },
+
+  "pairs": [
+    "BTC/USDT",
+    "ETH/USDT"
+  ],
+
+  "timeframes": [
+    "5m",
+    "15m",
+    "2h",
+    "4h",
+    "1d"
+  ],
+
+  "datadir": "user_data/data"
+}

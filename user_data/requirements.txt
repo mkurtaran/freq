@@ -1,0 +1,10 @@
+freqtrade
+pandas
+numpy
+ta-lib
+technical
+plotly
+jupyter
+flake8
+pylint
+isort

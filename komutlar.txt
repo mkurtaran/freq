@@ -1,0 +1,62 @@
+
+docker exec -it freqtrade bash
+
+container terminal
+
+
+proje pathinde de yap, bu komut container içinde çalıştırır
+
+docker compose down
+docker compose up -d --build
+
+docker compose run --rm freqtrade freqtrade new-strategy --strategy RsiStrategy
+
+docker compose exec freqtrade freqtrade backtesting --strategy BollingerBounceStrategy --timeframe 5m
+
+
+
+# Çalışan freqtrade container’ının içine interaktif bash terminal ile girer
+# Bundan sonra yazılan komutlar container ortamında çalışır
+docker exec -it freqtrade bash
+
+# Tüm docker compose servislerini durdurur ve siler
+# Container state temizlenir (volume’lar hariç)
+docker compose down
+
+# Dockerfile ve tüm bağımlılıkları yeniden build eder
+# Container’ları arka planda (detached) çalıştırır
+docker compose up -d --build
+
+# Geçici bir freqtrade container’ı ayağa kaldırır
+# Yeni bir strategy template oluşturur
+# İş bitince container otomatik olarak silinir (--rm)
+docker compose run --rm freqtrade freqtrade new-strategy --strategy RsiStrategy
+
+# Çalışan freqtrade container’ı içinde backtesting komutu çalıştırır
+# BollingerBounceStrategy stratejisini 5 dakikalık mumlarla test eder
+# Sonuçlar terminal çıktısı olarak gösterilir
+docker compose exec freqtrade freqtrade backtesting --strategy BollingerBounceStrategy --timeframe 5m
+
+
+# Proje dizininde çalıştığından emin ol
+# docker-compose.yml bu dizinde olmalı
+
+
+# download-data.json da tanımlı verileri indirir
+docker compose exec freqtrade freqtrade download-data --config user_data/configs/download-data.json
+
+# Görselleştirme
+docker compose exec freqtrade freqtrade plot-dataframe --strategy BollingerBounceStrategy --timeframe 5m
+
+# container yeniden build
+docker compose down
+docker compose up -d --build
+
+
+Container’ı TAM temizle (kritik)
+
+Bunu aynen sırayla yap:
+
+docker compose down
+docker compose pull
+docker compose up -d
