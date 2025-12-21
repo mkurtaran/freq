@@ -36,6 +36,11 @@ docker compose run --rm freqtrade freqtrade new-strategy --strategy RsiStrategy
 # BollingerBounceStrategy stratejisini 5 dakikalık mumlarla test eder
 # Sonuçlar terminal çıktısı olarak gösterilir
 docker compose exec freqtrade freqtrade backtesting --strategy BollingerBounceStrategy --timeframe 5m
+docker compose exec freqtrade freqtrade backtesting --strategy NewStrategy --timeframe 5m
+docker compose exec freqtrade freqtrade backtesting --strategy HeikinAshiStrategy --timeframe 5m
+
+docker compose restart freqtrade
+docker compose exec freqtrade freqtrade backtesting --strategy HeikinAshiStrategy --timeframe 5m
 
 
 # Proje dizininde çalıştığından emin ol
@@ -47,6 +52,7 @@ docker compose exec freqtrade freqtrade download-data --config user_data/configs
 
 # Görselleştirme
 docker compose exec freqtrade freqtrade plot-dataframe --strategy BollingerBounceStrategy --timeframe 5m
+
 
 # container yeniden build
 docker compose down

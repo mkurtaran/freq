@@ -8,3 +8,4 @@ jupyter
 flake8
 pylint
 isort
+lightgbm
