@@ -1,3 +1,7 @@
+kaynak:
+https://github.com/davidzr/freqtrade-strategies/tree/main/strategies
+
+
 
 docker exec -it freqtrade bash
 
@@ -54,9 +58,22 @@ docker compose exec freqtrade freqtrade download-data --config user_data/configs
 docker compose exec freqtrade freqtrade plot-dataframe --strategy BollingerBounceStrategy --timeframe 5m
 
 
+
 # container yeniden build
 docker compose down
 docker compose up -d --build
+
+# cache
+docker compose down
+docker container prune -f
+docker image prune -af
+
+docker pull freqtradeorg/freqtrade:stable_freqai
+
+docker compose up --force-recreate
+
+docker exec -it freqtrade bash
+freqtrade list-strategies | grep AI
 
 
 Container’ı TAM temizle (kritik)
@@ -66,3 +83,15 @@ Bunu aynen sırayla yap:
 docker compose down
 docker compose pull
 docker compose up -d
+
+
+cls;docker compose restart freqtrade;docker compose run --rm freqtrade backtesting --strategy NewStrategy
+
+docker compose exec freqtrade freqtrade backtesting --strategy BollingerBounceStrategy --timeframe 5m
+
+
+
+
+web server başlatma
+docker compose pull
+docker compose run --rm -p 127.0.0.1:8080:8080 freqtrade webserver --config /freqtrade/user_data/config.json

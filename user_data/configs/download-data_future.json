@@ -1,0 +1,55 @@
+{
+  "trading_mode": "futures",
+  //spot ise kaldır
+  "margin_mode": "isolated",
+  //spot ise kaldır
+  "exchange": {
+    "name": "binance",
+    "type": "futures"
+    //spot
+  },
+  "days": 200,
+  "pairs": [
+    "BTC/USDT:USDT",
+    //spot ise :USDT kaldır
+    "ETH/USDT:USDT",
+    "SOL/USDT:USDT",
+    "BNB/USDT:USDT",
+    "XRP/USDT:USDT",
+    "DOGE/USDT:USDT",
+    "ADA/USDT:USDT",
+    "AVAX/USDT:USDT",
+    "SHIB/USDT:USDT",
+    "DOT/USDT:USDT",
+    "LINK/USDT:USDT",
+    "TRX/USDT:USDT",
+    "MATIC/USDT:USDT",
+    "BCH/USDT:USDT",
+    "NEAR/USDT:USDT",
+    "LTC/USDT:USDT",
+    "UNI/USDT:USDT",
+    "ICP/USDT:USDT",
+    "ATOM/USDT:USDT",
+    "INJ/USDT:USDT",
+    "OP/USDT:USDT",
+    "ARB/USDT:USDT",
+    "APT/USDT:USDT",
+    "ETC/USDT:USDT",
+    "FIL/USDT:USDT",
+    "TON/USDT:USDT",
+    "HBAR/USDT:USDT",
+    "XLM/USDT:USDT",
+    "RUNE/USDT:USDT",
+    "AAVE/USDT:USDT"
+  ],
+  "timeframes": [
+    "5m",
+    "15m",
+    "30m",
+    "1h",
+    "2h",
+    "4h",
+    "1d"
+  ],
+  "datadir": "user_data/data"
+}

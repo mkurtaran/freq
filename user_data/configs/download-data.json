@@ -3,7 +3,7 @@
     "name": "binance",
     "type": "spot"
   },
-  "days": 100,
+  "days": 200,
   "pairs": [
     "BTC/USDT",
     "ETH/USDT"
