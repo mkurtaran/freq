@@ -8,8 +8,42 @@
   "max_open_trades": 2,
   "tradable_balance_ratio": 0.99,
   "fiat_display_currency": "USD",
-  "timeframe": "15m",
-  "strategy": "NewStrategy",
+  "timeframe": "1h",
+  "strategy": "FreqAIFreqtradeStrategy",
+  "freqai": {
+    "enabled": true,
+    "purge_old_models": true,
+    "train_period_days": 7,
+    "save_backtest_models": false,
+    "principal_enable": true,
+    "live_retrain_hours": 12,
+    "conv_width": 24,
+    "identifier": "freqai_RSI_Donchian",
+    "model_training_hours": 24,
+    "freqaimodel": "LightGBMRegressor",
+    "feature_parameters": {
+      "include_timeframes": [
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "4h"
+      ],
+      "include_corr_pairlist": [],
+      "label_period_candles": 24,
+      "include_shifted_candles": 2,
+      "indicator_periods_candles": [
+        10,
+        20
+      ],
+      "plot_feature_importances": 0
+    },
+    "data_split_parameters": {
+      "test_size": 0.25,
+      "random_state": 42
+    },
+    "model_training_parameters": {}
+  },
   "exchange": {
     "name": "binance",
     "key": "",
@@ -61,8 +95,7 @@
       "RUNE/USDT:USDT",
       "AAVE/USDT:USDT"
     ],
-    "pair_blacklist": [
-    ]
+    "pair_blacklist": []
   },
   "pairlists": [
     {
